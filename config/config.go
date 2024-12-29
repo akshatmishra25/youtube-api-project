@@ -9,8 +9,7 @@ import (
 
 
 // getEnv retrieves the value of the environment variable named by the key.
-// If the variable is present in the environment, the value (which may be empty) is returned.
-// Otherwise, the defaultValue is returned.
+
 func getEnv(key, defaultValue string) string {
     if value, exists := os.LookupEnv(key); exists {
         return value

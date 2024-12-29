@@ -19,7 +19,7 @@ func main() {
 	router.Use(gin.Logger())
 
 	routes.AddRoutes(router)
-	go services.FetchLatestVideos()
+	go services.FetchLatestVideos() // goroutine to fetch videos every 10 second
 	log.Printf("Starting server on port %s", config.AppConfig.Port)
 	router.Run(":" + config.AppConfig.Port)
 }

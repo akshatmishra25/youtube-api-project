@@ -30,7 +30,7 @@ func GetVideos(c *gin.Context) {
         c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
         return
     }
-    defer cursor.Close(context.TODO())
+    defer cursor.Close(context.TODO())	
 
     var videos []models.Video
     if err := cursor.All(context.TODO(), &videos); err != nil {

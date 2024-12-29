@@ -36,7 +36,7 @@ type YouTubeResponse struct {
 func FetchLatestVideos() {
     for {
         fetchAndStoreVideos()
-        time.Sleep(10 * time.Second)
+        time.Sleep(10 * time.Second) // runs as a cron job to fetch videos every 10 seconds
     }
 }
 
@@ -50,7 +50,7 @@ func fetchAndStoreVideos() {
         log.Printf("Error fetching videos: %v", err)
         return
     }
-    defer resp.Body.Close()
+    defer resp.Body.Close()	// closes at end of handler
 
     body, err := io.ReadAll(resp.Body)
     if err != nil {
